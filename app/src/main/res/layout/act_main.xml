@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout>
+
+    <!-- Data Binding: https://developer.android.com/topic/libraries/data-binding/?hl=ko-->
+    <data>
+        <variable
+            name="model"
+            type="com.ys.base.basemvvm.ViewModel.MainViewModel" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        tools:context=".View.MainAct"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tvHello"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{model.helloText}"
+            android:textColor="@color/colorPrimary"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Hello World!" />
+
+
+        <Button
+            android:id="@+id/btCurrent1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> model.showCurrentTime()}"
+            android:text="current time!"
+            android:layout_marginLeft="30dp"
+            app:layout_constraintBottom_toTopOf="@id/tvHello"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/btCurrent2"
+             />
+
+
+        <Button
+            android:id="@+id/btCurrent2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:onClick="@{model.currentTime2ClickListener}"
+            android:text="current time2"
+            android:layout_marginRight="30dp"
+            app:layout_constraintBottom_toTopOf="@id/tvHello"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@id/btCurrent1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="InputAct 이동"
+            android:onClick="@{() -> model.nextActivity()}"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
+

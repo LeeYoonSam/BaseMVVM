@@ -1,0 +1,90 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'realm-android'
+
+android {
+    compileSdkVersion 27
+
+    dataBinding.enabled true
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    defaultConfig {
+        applicationId "com.ys.base.basemvvm"
+        minSdkVersion 21
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        // minSdkVersion이 21 이상이면 multiDexEnabled를 true로 설정하기만 하면된다. 그 이하는 dependencies에서 라이브러리 추가
+        multiDexEnabled true
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+
+    kapt 'com.android.databinding:compiler:3.1.2'
+
+    // minSdkVersion이 20 이하일 경우 사용해야함
+    implementation 'com.android.support:multidex:1.0.3'
+
+    // Rxjava2
+    implementation "io.reactivex.rxjava2:rxjava:2.1.14"
+
+    // Retrofit2
+    implementation ('com.squareup.retrofit2:retrofit:2.4.0') {
+        exclude module: 'okhttp'
+    }
+    implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.4.0'
+
+    implementation 'com.google.code.gson:gson:2.8.4'
+
+    // OkHttp
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
+    // logging-interceptor는 반환된 모든 응답에 대해 로그 문자열을 생성합니다.
+
+
+    // Glide - https://github.com/bumptech/glide
+    implementation 'com.github.bumptech.glide:glide:4.7.1'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
+
+
+    // MVVM - ViewModel 초기화를 좀 더 쉽게하는 라이브러리 - https://thdev.tech/androiddev/2017/07/25/Android-Architecture-Components-ViewModel-Inject.html
+//    implementation 'android.arch.lifecycle:extensions:1.0.0-alpha5'
+//    implementation 'tech.thdev.lifecycle.extensions:android-lifecycle-extensions:1.0.0-alpha3'
+
+
+
+    /* TEST Library - https://developer.android.com/training/testing/unit-testing/local-unit-tests */
+
+    // Required -- JUnit 4 framework
+    testImplementation 'junit:junit:4.12'
+    // Optional -- Mockito framework
+    testImplementation 'org.mockito:mockito-core:1.10.19'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+}
