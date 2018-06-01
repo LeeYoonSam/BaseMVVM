@@ -34,13 +34,13 @@ class UsefulFunction: AppCompatActivity() {
 
      */
     fun letSample(context: Context) {
-        val padding = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16f, DisplayMetrics())
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16f, DisplayMetrics())
                 .let { padding ->
                     Log.d(this::class.java.name, "Padding: $padding")
                 }
 
         // 람다식의 인자가 한 개일 경우, 인자 이름을 생략하고 it을 사용하여 코드를 간략하게 할 수 있습니다.
-        val padding2 = TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16f, DisplayMetrics())
+        TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 16f, DisplayMetrics())
                 .let { Log.d(this::class.java.name, "Padding: $it") }
 
 
@@ -60,6 +60,39 @@ class UsefulFunction: AppCompatActivity() {
         obj?.let {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
+    }
+
+    private fun getTestFloat(): Float {
+        return 10f
+    }
+
+    fun letSample1(): Float {
+
+
+        getTestFloat().let {
+            value -> return value
+        }
+    }
+
+    fun letSample2(): Float {
+        // 람다식의 인자가 한 개일 경우, 인자 이름을 생략하고 it을 사용하여 코드를 간략하게 할 수 있습니다.
+        getTestFloat().let {
+            return it
+        }
+    }
+
+    fun letSafecallSample3(obj: String?): Boolean {
+
+        // let()을 안전한 호출(Safe Calls - ?.)과 함께 사용하면 if (null != obj) ... 를 대체할 수 있습니다.
+        // null일 수 있는 변수 obj
+
+
+        // obj가 null이 아닐 경우 작업 수행 (Safe calls + let 사용)
+        obj?.let {
+            return true
+        }
+
+        return false
     }
 
 
