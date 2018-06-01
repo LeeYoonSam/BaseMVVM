@@ -31,8 +31,11 @@ class MainAct : AppCompatActivity(), CallOtherActivityNavigator {
         val binding: ActMainBinding = DataBindingUtil.setContentView(this, R.layout.act_main)
         binding.model = activityModel
 
-        activityModel.onCreate()
-        activityModel.setCallActivity(this)
+        // this를 넘김(Safe Call)
+        activityModel?.let {
+            activityModel.onCreate()
+            activityModel.setCallActivity(this)
+        }
     }
 
     override fun onResume() {

@@ -79,6 +79,14 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
 
 
+    /*
+    Stetho는 안드로이드 어플리케이션을위한 정교한 디버그 브리지입니다.
+    사용하도록 설정하면 개발자는 기본적으로 Chrome 데스크톱 브라우저의 일부인 Chrome 개발자 도구 기능에 액세스 할 수 있습니다.
+    개발자는 응용 프로그램 내부에 대한 강력한 명령 줄 인터페이스를 제공하는 옵션 인 덤프 도구를 사용하도록 선택할 수도 있습니다.
+     */
+    implementation 'com.facebook.stetho:stetho:1.5.0'
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
+
     // MVVM - ViewModel 초기화를 좀 더 쉽게하는 라이브러리 - https://thdev.tech/androiddev/2017/07/25/Android-Architecture-Components-ViewModel-Inject.html
 //    implementation 'android.arch.lifecycle:extensions:1.0.0-alpha5'
 //    implementation 'tech.thdev.lifecycle.extensions:android-lifecycle-extensions:1.0.0-alpha3'

@@ -13,6 +13,8 @@ import android.widget.Toast
 /**
  * 코틀린의 유용한 함수들 - let, appply, run, with
  * http://www.androidhuman.com/lecture/kotlin/2016/07/06/kotlin_let_apply_run_with/
+ *
+ * http://tourspace.tistory.com/56
  */
 class UsefulFunction: AppCompatActivity() {
 
@@ -110,7 +112,6 @@ class UsefulFunction: AppCompatActivity() {
 
     사용 예
     특정 객체를 생성하면서 함께 호출해야 하는 초기화 코드가 있는 경우 사용할 수 있습니다.
-
     새로운 LayoutParams 객체를 생성하고 속성을 지정하는 코드를 예로 들어봅시다. 여러 줄에 걸쳐 새로 선언한 변수 param를 사용하여 속성을 지정하고 있습니다.
      */
     fun applySample() {
@@ -149,9 +150,7 @@ class UsefulFunction: AppCompatActivity() {
 
     사용 예
     객체에서 이 함수를 호출하는 경우 객체를 리시버로 전달받으므로, 특정 객체의 메서드나 필드를 연속적으로 호출하거나 값을 할당할 때 사용합니다.
-
     apply()와 적용 예가 유사하지만, apply()는 새로운 객체를 생성함과 동시에 연속된 작업이 필요할 때 사용하고 run()은 이미 생성된 객체에 연속된 작업이 필요할 때 사용한다는 점이 조금 다릅니다.
-
     다음은 AppCompatActivity의 액션바 속성을 연속하여 변경하는 예를 보여줍니다. run()메서드에서도 안전한 호출(Safe Calls)를 사용할 수 있으며, 이를 통해 액션바가 null이 아닐 경우에만 블록 내 명령들이 실행됩니다.
      */
     override fun onCreate(savedInstanceState: Bundle?) {
