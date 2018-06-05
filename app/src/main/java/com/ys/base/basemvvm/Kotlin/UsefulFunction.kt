@@ -185,4 +185,16 @@ class UsefulFunction: AppCompatActivity() {
     }
 
     // 이와 같이 기능은 똑같지만 run() 함수가 안전한 호출(Safe Calls)을 지원하는데 반해, with() 함수는 이를 자체적으로 지원하지 않으므로 특별한 경우가 아니라면 run() 함수를 더 자주 사용하게 될 것으로 보입니다.
+
+
+
+
+
+    // check type / when
+    fun checkType(data: Any) {
+        when(data) {
+            is String -> "String"
+            is Int -> "Int"
+        }
+    }
 }
