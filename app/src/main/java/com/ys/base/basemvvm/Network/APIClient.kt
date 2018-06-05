@@ -23,7 +23,9 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 class APIClient {
 
     companion object {
-        val BASE_URL = "https://domain/api"
+//        val BASE_URL = "https://api.github.com/"
+        val BASE_URL = "https://en.wikipedia.org/"
+
 
         lateinit var retrofit: Retrofit
 
